@@ -122,7 +122,7 @@ func (cont *Controller) process() bool {
 	ctx := context.Background()
 	if dc.Labels["hardik.dev/isDeleted"] == "deleted" {
 		log.Printf("Deleting deployment having name '%s'.\n", dc.Name)
-		err := cont.client.AppsV1().Deployments(dc.Namespace).Delete(ctx, dc.Name, metav1.DeleteOptions{})
+		err := cont.client.AppsV1().Deployments(dc.Namespace).Delete(ctx, dc.Name+"-deployment", metav1.DeleteOptions{})
 		if err != nil {
 			log.Printf("Failed to delete deployment having name '%s'. Error: '%s'.\n", dc.Name, err.Error())
 			return false
