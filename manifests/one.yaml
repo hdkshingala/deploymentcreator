@@ -1,0 +1,7 @@
+apiVersion: hardik.dev/v1alpha1
+kind: DeploymentCreator
+metadata:
+  name: one
+spec:
+  image: nginx
+  replicas: 1

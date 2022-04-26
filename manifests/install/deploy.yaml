@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: deploymentcreator
+  name: deploymentcreator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploymentcreator
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: deploymentcreator
+    spec:
+      serviceAccount: deploymentcreator-sa
+      containers:
+        - image: hardikinfracloud/deploymentcreator:1.0.0
+          name: deploymentcreator
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
