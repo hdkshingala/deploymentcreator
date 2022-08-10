@@ -1,4 +1,4 @@
-FROM golang:1.18.0
+FROM golang:1.19.0
 WORKDIR /deploymentcreator
 ADD . .
 RUN go mod download && CGO_ENABLED=0 go build
